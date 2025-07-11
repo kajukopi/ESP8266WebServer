@@ -138,7 +138,7 @@ const char UPDATE_HTML[] PROGMEM = R"rawliteral(
       <input type="file" name="firmware" class="form-control my-3" required>
       <input type="submit" value="Upload" class="btn btn-success">
     </form>
-    <a href="/" class="btn btn-secondary mt-4"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
+    <a href="/" class="btn btn-primary mt-4"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
   </div>
   <script src="https://payunghitam.web.app/js/core.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
