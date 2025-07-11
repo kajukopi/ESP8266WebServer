@@ -7,6 +7,13 @@
 const char* ssid = "karimroy";
 const char* password = "09871234";
 
+// Konfigurasi IP static
+IPAddress local_IP(192, 168, 248, 182);
+IPAddress gateway(192, 168, 248, 1);
+IPAddress subnet(255, 255, 255, 0);
+IPAddress primaryDNS(8, 8, 8, 8);   // Optional
+IPAddress secondaryDNS(8, 8, 4, 4); // Optional
+
 ESP8266WebServer server(80);
 ESP8266HTTPUpdateServer httpUpdater;
 
@@ -120,6 +127,12 @@ void handleUpdatePage() {
 
 void setup() {
   Serial.begin(115200);
+
+  // Terapkan IP static
+  if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
+    Serial.println("STA Failed to configure");
+  }
+
   WiFi.begin(ssid, password);
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED) {
@@ -148,5 +161,3 @@ void loop() {
   server.handleClient();
   ArduinoOTA.handle();
 }
-
-// edit file 1
