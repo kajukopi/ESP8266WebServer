@@ -1,3 +1,6 @@
+![Compile ESP8266](https://github.com/kajukopi/ESP8266WebServer/actions/workflows/compile.yml/badge.svg)
+
+
 # 📡 ESP8266 Web Server + OTA + Servo Control
 
 Repositori ini berisi contoh implementasi **ESP8266 Web Server** yang mampu:
