@@ -9,6 +9,7 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ESP8266 Control</title>
   <link rel="stylesheet" href="https://payunghitam.web.app/css/core.min.css" />
+  <link rel="stylesheet" href="https://payunghitam.web.app/css/all.min.css" />
   <style>
     body {
       padding: 2rem;
@@ -45,36 +46,40 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
 </head>
 <body class="container text-center">
 
-  <h1 class="fw-bold text-primary mb-4">ESP8266 Control Panel</h1>
+  <h1 class="fw-bold text-primary mb-4">
+    <i class="fas fa-microchip me-2"></i>ESP8266 Control Panel
+  </h1>
 
   <div class="card shadow-3-strong">
     <div class="card-body">
-      <p><strong>IP Address:</strong> <span id="ip">%IP%</span></p>
-      <p><strong>WiFi Strength:</strong> <span id="signalText">%SIGNAL%</span></p>
+      <p><strong><i class="fas fa-network-wired"></i> IP Address:</strong> <span id="ip">%IP%</span></p>
+      <p><strong><i class="fas fa-signal"></i> WiFi Strength:</strong> <span id="signalText">%SIGNAL%</span></p>
       <div class="signal-bar">
         <div class="signal-fill" id="signalBar"></div>
       </div>
 
       <div class="mt-4">
-        <label class="form-label">Servo Angle: <span id="angleValue">0%</span></label>
+        <label class="form-label"><i class="fas fa-sliders-h me-2"></i>Servo Angle: <span id="angleValue">0%</span></label>
         <input type="range" class="form-range" id="slider" min="0" max="100" value="0" oninput="updateSlider(this.value)">
       </div>
 
       <div class="form-check form-switch d-flex align-items-center justify-content-center mt-4">
         <input class="form-check-input me-2" type="checkbox" id="ledSwitch" onchange="toggleLED(this.checked)">
-        <label class="form-check-label fs-5" for="ledSwitch">💡 Built-in LED</label>
+        <label class="form-check-label fs-5" for="ledSwitch"><i class="fas fa-lightbulb me-1"></i>Built-in LED</label>
       </div>
 
-      <a href="/update" class="btn btn-primary mt-4">🔧 Firmware Update</a>
+      <a href="/update" class="btn btn-primary mt-4">
+        <i class="fas fa-upload me-1"></i>Firmware Update
+      </a>
     </div>
   </div>
 
   <div class="footer mt-5">
     <p>Created by <strong>Karim Roy Tampubolon</strong></p>
     <div class="social">
-      <a href="https://github.com/kajukopi/ESP8266WebServer" target="_blank">🔗 GitHub</a> |
-      <a href="https://www.tiktok.com/@karimroy.digital" target="_blank">🎵 TikTok</a> |
-      <a href="https://www.facebook.com/karimroy" target="_blank">📘 Facebook</a>
+      <a href="https://github.com/kajukopi/ESP8266WebServer" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
+      <a href="https://www.tiktok.com/@karimroy.digital" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a> |
+      <a href="https://www.facebook.com/karimroy" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
     </div>
   </div>
 
@@ -88,7 +93,6 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
       fetch("/toggleLED?state=" + (state ? "on" : "off"));
     }
 
-    // Grafik sinyal WiFi
     function setSignalBar(strengthText) {
       const rssi = parseInt(strengthText.split(" ")[0]);
       let percent = 0;
@@ -106,6 +110,7 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
     });
   </script>
   <script src="https://payunghitam.web.app/js/core.min.js"></script>
+  <script src="https://payunghitam.web.app/js/all.min.js"></script>
 </body>
 </html>
 )rawliteral";
@@ -118,6 +123,7 @@ const char UPDATE_HTML[] PROGMEM = R"rawliteral(
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Firmware Update</title>
   <link rel="stylesheet" href="https://payunghitam.web.app/css/core.min.css" />
+  <link rel="stylesheet" href="https://payunghitam.web.app/css/all.min.css" />
   <style>
     body {
       padding: 2rem;
@@ -127,14 +133,15 @@ const char UPDATE_HTML[] PROGMEM = R"rawliteral(
 </head>
 <body class="container text-center">
   <div class="card shadow-3-strong p-4">
-    <h2 class="mb-4 text-success">Firmware Update</h2>
+    <h2 class="mb-4 text-success"><i class="fas fa-upload me-2"></i>Firmware Update</h2>
     <form method="POST" action="/update" enctype="multipart/form-data">
       <input type="file" name="firmware" class="form-control my-3" required>
       <input type="submit" value="Upload" class="btn btn-success">
     </form>
-    <a href="/" class="btn btn-secondary mt-4">⬅ Back to Home</a>
+    <a href="/" class="btn btn-secondary mt-4"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
   </div>
   <script src="https://payunghitam.web.app/js/core.min.js"></script>
+  <script src="https://payunghitam.web.app/js/all.min.js"></script>
 </body>
 </html>
 )rawliteral";
