@@ -36,7 +36,7 @@ jobs:
 
     - name: 📅 Get date
       id: date
-      run: echo "today=$(date +%F)" >> "$GITHUB_OUTPUT"
+      run: echo "today=$(date +%F-%H%M)" >> "$GITHUB_OUTPUT"
 
     - name: 📂 Rename firmware with date
       run: |
