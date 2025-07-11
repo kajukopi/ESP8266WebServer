@@ -47,3 +47,9 @@ jobs:
       with:
         name: firmware-${{ steps.date.outputs.today }}
         path: build/firmware-*.bin
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: firmware-${{ steps.date.outputs.today }}
+        files: build/firmware-*.bin
