@@ -46,16 +46,16 @@ jobs:
 
     - name: 📂 Rename firmware with date
       run: |
-        mv build/sketch.ino.bin build/firmware-${{ steps.date.outputs.today }}.bin
+        mv build/sketch.ino.bin build/ESP8266WebServer-${{ steps.date.outputs.today }}.bin
 
     - name: 🚀 Upload firmware artifact
       uses: actions/upload-artifact@v4
       with:
-        name: firmware-${{ steps.date.outputs.today }}
-        path: build/firmware-*.bin
+        name: ESP8266WebServer-${{ steps.date.outputs.today }}
+        path: build/ESP8266WebServer-*.bin
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: firmware-${{ steps.date.outputs.today }}
-        files: build/firmware-*.bin
+        tag_name: ESP8266WebServer-${{ steps.date.outputs.today }}
+        files: build/ESP8266WebServer-*.bin
