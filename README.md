@@ -1,6 +1,3 @@
-![Compile ESP8266](https://github.com/kajukopi/ESP8266WebServer/actions/workflows/compile.yml/badge.svg)
-
-
 # 📡 ESP8266 Web Server + OTA + Servo Control
 
 Repositori ini berisi contoh implementasi **ESP8266 Web Server** yang mampu:
@@ -124,3 +121,13 @@ Unggah file `.bin` dari hasil kompilasi Arduino IDE.
 - [ESP8266 Arduino Core](https://github.com/esp8266/Arduino)
 - [ESP8266WebServer Class Reference](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#esp8266webserver)
 - [Servo Arduino Library](https://www.arduino.cc/en/Reference/Servo)
+
+![Compile ESP8266](https://github.com/kajukopi/ESP8266WebServer/actions/workflows/compile.yml/badge.svg)
+
+## 🚀 Firmware Releases
+
+Kamu bisa mengunduh file firmware hasil kompilasi otomatis dari GitHub Actions melalui halaman rilis berikut:
+
+🔗 **[ESP8266 Firmware Releases – GitHub](https://github.com/kajukopi/ESP8266WebServer/releases)**
+
+Setiap kali ada update di branch `main`, firmware baru akan dikompilasi dan diunggah otomatis dengan nama file:
