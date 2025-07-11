@@ -37,6 +37,9 @@ jobs:
           sketch \
           --output-dir build
 
+    - name: 🔍 List build directory
+      run: ls -lah build
+
     - name: 📅 Get date
       id: date
       run: echo "today=$(date +%F-%H%M)" >> "$GITHUB_OUTPUT"
