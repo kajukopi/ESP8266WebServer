@@ -9,7 +9,7 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ESP8266 Control</title>
   <link rel="stylesheet" href="https://payunghitam.web.app/css/core.min.css" />
-  <link rel="stylesheet" href="https://payunghitam.web.app/css/all.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
   <style>
     body {
       padding: 2rem;
@@ -110,7 +110,7 @@ const char MAIN_HTML[] PROGMEM = R"rawliteral(
     });
   </script>
   <script src="https://payunghitam.web.app/js/core.min.js"></script>
-  <script src="https://payunghitam.web.app/js/all.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 </body>
 </html>
 )rawliteral";
@@ -123,7 +123,7 @@ const char UPDATE_HTML[] PROGMEM = R"rawliteral(
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Firmware Update</title>
   <link rel="stylesheet" href="https://payunghitam.web.app/css/core.min.css" />
-  <link rel="stylesheet" href="https://payunghitam.web.app/css/all.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
   <style>
     body {
       padding: 2rem;
@@ -141,7 +141,7 @@ const char UPDATE_HTML[] PROGMEM = R"rawliteral(
     <a href="/" class="btn btn-secondary mt-4"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
   </div>
   <script src="https://payunghitam.web.app/js/core.min.js"></script>
-  <script src="https://payunghitam.web.app/js/all.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 </body>
 </html>
 )rawliteral";
