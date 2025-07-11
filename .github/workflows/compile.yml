@@ -1,0 +1,49 @@
+name: Compile ESP8266 Sketch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout source code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Set up Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
+    - name: 🧱 Initialize Arduino CLI config
+      run: arduino-cli config init
+
+    - name: ➕ Add ESP8266 Board Manager URL
+      run: arduino-cli config add board_manager.additional_urls https://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+    - name: 📥 Install ESP8266 core
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install esp8266:esp8266
+
+    - name: 🛠️ Compile sketch
+      run: |
+        arduino-cli compile \
+          --fqbn esp8266:esp8266:nodemcuv2 \
+          sketch \
+          --output-dir build
+
+    - name: 📅 Get date
+      id: date
+      run: echo "today=$(date +%F)" >> "$GITHUB_OUTPUT"
+
+    - name: 📂 Rename firmware with date
+      run: |
+        mv build/sketch.ino.bin build/firmware-${{ steps.date.outputs.today }}.bin
+
+    - name: 🚀 Upload firmware artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: firmware-${{ steps.date.outputs.today }}
+        path: build/firmware-*.bin
